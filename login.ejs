@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta http-equiv="content-type" content="text/html"; charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="./style.css">
+        <title>LOGIN</title>
+    </head>
+    
+    <SCRIPT language="javascript" type="text/javascript">
+    function setID(){
+        var id = document.forms['loginForm']['id_input'].value;
+        localStorage.setItem('id',id);
+        // location.href('/');
+    }
+    </SCRIPT>
+    <form method="post" action="/" name="loginForm" >
+        ログインネームを入力してください。
+        <body>
+            <p><input type="text" name="id_input"> </p>
+            <p><button onclick="setID();">送信</button></p>
+        </body>
+    </form>
+</html>

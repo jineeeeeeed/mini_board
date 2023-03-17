@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta http-equiv="content-type" content="text/html"; charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="./style.css">
+        <title>mミニ掲示板</title>
+    </head>
+    
+    <SCRIPT language="javascript" type="text/javascript">
+    function init(){
+        // document.forms['indexForm'].submit();
+        var id = localStorage.getItem('id');
+        console.log(id );
+        if(id == null){
+            location.href = './login';
+            // TODO この瞬間遷移？？
+        }
+        
+        document.querySelector('#id').textContent ='ID:'+id;
+        document.querySelector('#id_input').value = id;
+    }
+    </SCRIPT>
+
+    <form method="post" action="/" name="indexForm" >
+        <input type="hidden" id="id_input" name="id" value="">
+        <body onload="init();">
+            <P>※メッセージは最大10個保管されます。</P>
+            <P><Span id="id"></Span></P>
+            <p><input type="text" name="msg"> </p>
+            <p><input type="submit" value="送信"></p>
+            <hr>
+            
+            <table border="1">
+                <% for(var i in data){ %>
+                    <%- include('table_data',{val:data[i]} )  %>
+                <% } %>
+            </table>
+        </body>
+    </form>
+</html>
