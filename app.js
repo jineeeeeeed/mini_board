@@ -115,9 +115,7 @@ function addToData(id,msg,Fname,req) {
 	console.log('3　■　■　■　■　■　■　■　■　■　■　■　■　■　■');
 	console.log('3'+message_data.length);
 	if(message_data.length > max_num){
-		console.log('message_data.pop()');
-		message_data.pop();
-		console.log('3'+message_data);
+		message_data.pop();//最後の行を削除
 	}
 	console.log('4　■　■　■　■　■　■　■　■　■　■　■　■　■　■');
 	saveToFile(Fname);
